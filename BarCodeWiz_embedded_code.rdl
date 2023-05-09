@@ -1,0 +1,754 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="MyXMLDataSource">
+      <ConnectionProperties>
+        <DataProvider>XML</DataProvider>
+        <ConnectString />
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>8ebc1f7b-e923-4227-a0fd-7ef3c2e1b6b2</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="MyXMLDataSet">
+      <Query>
+        <DataSourceName>MyXMLDataSource</DataSourceName>
+        <CommandText>&lt;Query&gt;
+&lt;XmlData&gt; 
+&lt;Customers xmlns="http://www.adventure-works.com"&gt;  
+   &lt;Customer ID="11"&gt;  
+      &lt;FirstName&gt;Bobby&lt;/FirstName&gt;  
+      &lt;LastName&gt;Moore&lt;/LastName&gt;  
+      &lt;Orders&gt;  
+         &lt;Order ID="1" Qty="6"&gt;Chair&lt;/Order&gt;  
+         &lt;Order ID="2" Qty="1"&gt;Table&lt;/Order&gt;  
+      &lt;/Orders&gt;  
+      &lt;Returns&gt;  
+         &lt;Return ID="1" Qty="2"&gt;Chair&lt;/Return&gt;  
+      &lt;/Returns&gt;  
+   &lt;/Customer&gt;  
+   &lt;Customer ID="20"&gt;  
+      &lt;FirstName&gt;Crystal&lt;/FirstName&gt;  
+      &lt;LastName&gt;Hu&lt;/LastName&gt;  
+      &lt;Orders&gt;  
+         &lt;Order ID="8" Qty="2"&gt;Sofa&lt;/Order&gt;  
+      &lt;/Orders&gt;  
+      &lt;Returns/&gt;  
+   &lt;/Customer&gt;  
+   &lt;Customer ID="33"&gt;  
+      &lt;FirstName&gt;Wyatt&lt;/FirstName&gt;  
+      &lt;LastName&gt;Diaz&lt;/LastName&gt;  
+      &lt;Orders&gt;  
+         &lt;Order ID="15" Qty="2"&gt;EndTables&lt;/Order&gt;  
+      &lt;/Orders&gt;  
+      &lt;Returns/&gt;  
+   &lt;/Customer&gt;  
+&lt;/Customers&gt;  
+&lt;/XmlData&gt; 
+ &lt;/Query&gt;</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="xmlns">
+          <DataField>xmlns</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Customer_ID">
+          <DataField>Customer.ID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirstName">
+          <DataField>FirstName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LastName">
+          <DataField>LastName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Qty">
+          <DataField>Qty</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Order">
+          <DataField>Order</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>4.7225cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.6399cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>First Name</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Last Name</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Customer ID</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>item barcode</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#7292cc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#4c68a2</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>1.43365cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="FirstName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!FirstName.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>FirstName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="LastName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!LastName.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>LastName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Customer_ID">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Customer_ID.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>#4d4d4d</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Customer_ID</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Image Name="Image1">
+                          <Source>Database</Source>
+                          <Value>=Code.Code128B(Fields!Customer_ID.Value, 2, True)</Value>
+                          <MIMEType>image/png</MIMEType>
+                          <Sizing>FitProportional</Sizing>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Image>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>MyXMLDataSet</DataSetName>
+            <Top>1.6987cm</Top>
+            <Left>1.45521cm</Left>
+            <Height>2.07355cm</Height>
+            <Width>12.2225cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Textbox Name="ReportTitle">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>BarCodeWiz Code 128 Fonts Example</Value>
+                    <Style>
+                      <FontFamily>Verdana</FontFamily>
+                      <FontSize>20pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
+            <rd:DefaultName>ReportTitle</rd:DefaultName>
+            <Top>0mm</Top>
+            <Height>10.16mm</Height>
+            <Width>142.61042mm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>57.15mm</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>147.2312mm</Width>
+      <Page>
+        <PageFooter>
+          <Height>11.43mm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="ExecutionTime">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>ExecutionTime</rd:DefaultName>
+              <Top>5.08mm</Top>
+              <Left>91.81042mm</Left>
+              <Height>6.35mm</Height>
+              <Width>50.8mm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <Code>Public Shared Function Code128A(ByVal stringText as String, ByVal fontVer as Integer, Optional showHumanReadable As Boolean = True) As Byte()
+	If showHumanReadable Then
+		Return GenerateImage("BCW_Code128A_" &amp; fontVer, BCW_Code128A(stringText))
+	Else
+		Return GenerateImage("BCW_Code128_" &amp; fontVer, BCW_Code128A(stringText))
+	End If
+End Function
+
+Public Shared Function Code128B(ByVal stringText as String, ByVal fontVer as Integer, Optional showHumanReadable As Boolean = True) As Byte()
+	If showHumanReadable Then
+		Return GenerateImage("BCW_Code128B_" &amp; fontVer, BCW_Code128B(stringText))
+	Else
+		Return GenerateImage("BCW_Code128_" &amp; fontVer, BCW_Code128B(stringText))
+	End If
+End Function
+
+Public Shared Function Code128C(ByVal stringText as String, ByVal fontVer as Integer, Optional showHumanReadable As Boolean = True) As Byte()
+	If showHumanReadable Then
+		Return GenerateImage("BCW_Code128C_" &amp; fontVer, BCW_Code128C(stringText))
+	Else
+		Return GenerateImage("BCW_Code128_" &amp; fontVer, BCW_Code128C(stringText))
+	End If
+End Function
+
+Public Shared Function GenerateImage(ByVal fontName As String,  ByVal stringText As String) As Byte()
+        Dim oGraphics As System.Drawing.Graphics
+        Dim barcodeSize As System.Drawing.SizeF
+        Dim ms As System.IO.MemoryStream
+ 
+        Dim fontSize as Integer = 220
+
+        Using font As New System.Drawing.Font(New System.Drawing.FontFamily(fontName), fontSize)
+            Using tmpBitmap As New System.Drawing.Bitmap(1, 1, System.Drawing.Imaging.PixelFormat.Format32bppArgb)
+                oGraphics = System.Drawing.Graphics.FromImage(tmpBitmap)
+                oGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel
+                barcodeSize = oGraphics.MeasureString(stringText, font)
+                oGraphics.Dispose()
+            End Using
+ 
+            Using newBitmap As New System.Drawing.Bitmap(barcodeSize.Width, barcodeSize.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb)
+                oGraphics = System.Drawing.Graphics.FromImage(newBitmap)
+                oGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel
+ 
+                Using oSolidBrushWhite As New System.Drawing.SolidBrush(System.Drawing.Color.White)
+                    Using oSolidBrushBlack As New System.Drawing.SolidBrush(System.Drawing.Color.Black)
+                        oGraphics.FillRectangle(oSolidBrushWhite, New System.Drawing.Rectangle(0, 0, barcodeSize.Width, barcodeSize.Height))
+                        oGraphics.DrawString(stringText, font, oSolidBrushBlack, 0, 0)
+                    End Using
+ 
+                End Using
+ 
+                ms = New System.IO.MemoryStream()
+                newBitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+            End Using
+        End Using
+ 
+        Return ms.ToArray()
+    End Function
+
+
+    Public Shared Function BCW_Code128A(ByVal input As String) As String
+        Dim chkDigitTotal As Integer = 103
+        Dim inputLength As Integer = input.Length
+
+        If inputLength = 0 Then Return ""
+
+        Dim currentPos As Integer = 1
+
+        While currentPos &lt;= inputLength
+            Dim bcVal As Integer
+
+            Dim asciiVal As Integer = Asc(input(currentPos - 1))
+
+            If asciiVal &gt;= 32 And asciiVal &lt;= 95 Then
+                bcVal = asciiVal - 32
+            ElseIf asciiVal &gt;= 0 And asciiVal &lt;= 31 Then
+                bcVal = asciiVal + 64
+            Else
+                Return ""
+            End If
+
+            chkDigitTotal += bcVal * currentPos
+            currentPos = currentPos + 1
+        End While
+        chkDigitTotal = chkDigitTotal Mod 103
+
+        Dim output As String = ""
+
+        output = output + Chr(203)
+
+        For i As Integer = 0 To inputLength - 1
+
+            If input(i) = Chr(32) Then
+                output += Chr(232)
+            Else
+                output += input(i)
+            End If
+        Next
+
+        output += C128ToBars(chkDigitTotal)
+        output += Chr(206)
+
+        Return output
+    End Function
+    Public Shared Function BCW_Code128B(ByVal input As String) As String
+        Dim chkDigitTotal As Integer = 104
+        Dim inputLength As Integer = input.Length
+
+        If inputLength = 0 Then Return ""
+
+        Dim currentPos As Integer = 1
+
+        While currentPos &lt;= inputLength
+            Dim bcVal As Integer
+
+            Dim asciiVal As Integer = Asc(input(currentPos - 1))
+
+            If asciiVal &gt;= 32 And asciiVal &lt;= 126 Then
+                bcVal = asciiVal - 32
+            Else
+                Return ""
+            End If
+
+            chkDigitTotal += bcVal * currentPos
+            currentPos = currentPos + 1
+        End While
+
+        chkDigitTotal = chkDigitTotal Mod 103
+
+        Dim output As String = ""
+
+        output = output + Chr(204)
+
+        For i As Integer = 0 To inputLength - 1
+
+            If input(i) = Chr(32) Then
+                output += Chr(232)
+            Else
+                output += input(i)
+            End If
+        Next
+
+        output += C128ToBars(chkDigitTotal)
+        output += Chr(206)
+
+        Return output
+    End Function
+
+
+    Public Shared Function BCW_Code128C(ByVal input As String, Optional ByVal insertLeadingZero As Boolean = False) As String
+        Dim chkDigitTotal As Integer = 105
+        Dim inputLength As Integer = input.Length
+
+        If inputLength = 0 Then Return ""
+
+        Dim currentPos As Integer = 1
+
+        'Only numbers are valid
+        For l As Integer = 0 To inputLength - 1
+            If input(l) &gt; "9" Or input(l) &lt; "0" Then
+                Return ""
+            End If
+        Next
+
+        If inputLength Mod 2 &lt;&gt; 0 Then
+            If insertLeadingZero Then
+                input = "0" + input
+                inputLength = inputLength + 1
+            Else
+                Return ""
+            End If
+        End If
+
+
+        Dim output As String = ""
+
+        For i As Integer = 0 To inputLength - 1 Step 2
+            Dim bcVal As Integer = Convert.ToInt32(input.Substring(i, 2))
+            chkDigitTotal += currentPos * bcVal
+            currentPos = currentPos + 1
+
+            If bcVal = 0 Then
+                output += Chr(232)
+            ElseIf bcVal &gt;= 1 And bcVal &lt;= 94 Then
+                output += Chr(bcVal + 32)
+            ElseIf bcVal &gt;= 95 And bcVal &lt;= 99 Then
+                output += Chr(bcVal + 132)
+            End If
+        Next
+
+        chkDigitTotal = chkDigitTotal Mod 103
+
+        output = Chr(205) + output
+
+        output += C128ToBars(chkDigitTotal)
+        output += Chr(206)
+
+        Return output
+    End Function
+
+
+
+    Private Shared Function C128ToBars(ByVal chkDigit As Integer) As String
+
+        Dim c As String = "212222222122222221121223121322" _
+                        + "131222122213122312132212221213221312" _
+                        + "231212112232122132122231113222123122" _
+                        + "123221223211221132221231213212223112" _
+                        + "312131311222321122321221312212322112" _
+                        + "322211212123212321232121111323131123" _
+                        + "131321112313132113132311211313231113" _
+                        + "231311112133112331132131113123113321" _
+                        + "133121313121211331231131213113213311" _
+                        + "213131311123311321331121312113312311" _
+                        + "332111314111221411431111111224111422" _
+                        + "121124121421141122141221112214112412" _
+                        + "122114122411142112142211241211221114" _
+                        + "413111241112134111111242121142121241" _
+                        + "114212124112124211411212421112421211" _
+                        + "212141214121412121111143111341131141" _
+                        + "114113114311411113411311113141114131" _
+                        + "3111414111312114122112142112322331112"
+
+        Dim startPos As Integer = chkDigit * 6
+        Dim output As String = ""
+
+        For i As Integer = 0 To 5
+            Dim addPos As Integer = 0
+            If i Mod 2 = 0 Then
+                addPos = 180 + Asc(c.Substring(startPos + i)) - 48 - 1
+            Else
+                addPos = 184 + Asc(c.Substring(startPos + i)) - 48 - 1
+            End If
+            output += Chr(addPos)
+        Next
+
+        Return output
+    End Function
+</Code>
+  <CodeModules>
+    <CodeModule>System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</CodeModule>
+  </CodeModules>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportServerUrl>http://alek-pc/reportserver</rd:ReportServerUrl>
+  <rd:ReportID>4e711277-1f4e-45f6-bcaf-11dd473c644e</rd:ReportID>
+</Report>
